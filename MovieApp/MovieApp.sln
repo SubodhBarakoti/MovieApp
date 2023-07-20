@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{EBB3935F-52CA-4EC6-AA1F-D2BF0F2A3CB4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp", "MovieApp\MovieApp.csproj", "{7990F4A6-AAD1-419D-AF2D-8DD6FC99630A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieAppMVC", "MovieApp\MovieAppMVC.csproj", "{7990F4A6-AAD1-419D-AF2D-8DD6FC99630A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

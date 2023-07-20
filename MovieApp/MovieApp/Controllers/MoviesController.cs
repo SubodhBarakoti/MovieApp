@@ -7,7 +7,7 @@ using Common.Enums;
 using Common.ViewModels;
 using Entities;
 
-namespace MovieApp.Controllers
+namespace MovieAppMVC.Controllers
 {
     //[Authorize(Roles = "Admin,Super_Admin,Basic user")]
     public class MoviesController : Controller

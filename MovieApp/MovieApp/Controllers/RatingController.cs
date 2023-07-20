@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interface;
 
-namespace MovieApp.Controllers
+namespace MovMovieAppMVCieApp.Controllers
 {
     public class RatingController : Controller
     {

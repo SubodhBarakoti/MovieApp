@@ -11992,11 +11992,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\MovieApp\\MovieApp.csproj",
-      "projectName": "MovieApp",
-      "projectPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\MovieApp\\MovieApp.csproj",
+      "projectUniqueName": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\MovieApp\\MovieAppMVC.csproj",
+      "projectName": "MovieAppMVC",
+      "projectPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\MovieApp\\MovieAppMVC.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\MovieApp\\obj\\",
+      "outputPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\MovieApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -12014,8 +12014,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Services\\Services.csproj": {
-              "projectPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Services\\Services.csproj"
+            "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Services\\Services.csproj": {
+              "projectPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Services\\Services.csproj"
             }
           }
         }

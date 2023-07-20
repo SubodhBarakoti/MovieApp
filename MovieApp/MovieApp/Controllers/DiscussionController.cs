@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interface;
 
-namespace MovieApp.Controllers
+namespace MovieAppMVC.Controllers
 {
     public class DiscussionController : Controller
     {

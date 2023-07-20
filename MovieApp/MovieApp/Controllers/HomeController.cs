@@ -1,8 +1,7 @@
-﻿using MovieApp.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace MovieApp.Controllers
+namespace MovieAppMVC.Controllers
 {
     public class HomeController : Controller
     {

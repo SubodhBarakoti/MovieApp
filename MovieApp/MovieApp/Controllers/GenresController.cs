@@ -4,7 +4,7 @@ using Services.Interface;
 using Common.ViewModels;
 using Entities;
 
-namespace MovieApp.Controllers
+namespace MovieAppMVC.Controllers
 {
     public class GenresController : Controller
     {

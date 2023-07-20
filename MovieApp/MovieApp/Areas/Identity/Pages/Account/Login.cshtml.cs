@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace InternProject.Areas.Identity.Pages.Account
+namespace MovieAppMVC.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {

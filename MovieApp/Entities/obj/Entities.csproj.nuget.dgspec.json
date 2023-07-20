@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Entities\\Entities.csproj": {}
+    "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Entities\\Entities.csproj": {
+    "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",

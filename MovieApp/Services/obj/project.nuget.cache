@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t0y2x7i08aUIteA9rLLeVtSoZ/hV8U+UoFQt8WawUIsLVVLqjl4TDyo3ehluuyQTBUHBP1iDybGEA55W928Jfg==",
+  "dgSpecHash": "bnX5lc2itUS3Q1S05K2VEwBbpnrVFEc1eqiyiUN38lroPasyfD0URYIDVo62CpHiYADTZIWGv6tAAoQy2WdwDA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Services\\Services.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

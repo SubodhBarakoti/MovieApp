@@ -127,11 +127,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Common\\Common.csproj",
+      "projectUniqueName": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Common\\Common.csproj",
       "projectName": "Common",
-      "projectPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Common\\Common.csproj",
+      "projectPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Common\\Common.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieAppAPI\\MovieAppAPI\\Common\\obj\\",
+      "outputPath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
