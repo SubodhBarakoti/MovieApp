@@ -1,0 +1,56 @@
+﻿@using Common.Enums;
+@using Common.ViewModels;
+@model DisplayMoviesViewModel
+
+<h2>Movies</h2>
+@if (User.IsInRole(UserRole.Super_Admin.ToString()) || User.IsInRole(UserRole.Admin.ToString()))
+{
+    <a asp-action="Create" class="btn btn-info">Add Movie</a>
+}
+<partial name="_FilterMovies" model="@Model" view-data="@ViewData"/>
+<div id="moviesList">
+    <partial name="_MovieList" model="@Model" />
+</div>
+@section Scripts {
+    <script>
+        function filterMovies() {
+            var genre = $('#genre').val();
+            var sortBy = $('#sortBy').val();
+            
+            $.ajax({
+                url: '@Url.Action("FilterMovies", "Movies")',
+                type: 'GET',
+                data: { genre: genre, sortBy: sortBy },
+                success: function (result) {
+                    $('#moviesList').html(result);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+        $(document).ready(function () {
+            $('#filterForm').submit(function (event) {
+                event.preventDefault();
+                filterMovies();
+            });
+        });
+    </script>
+    <script>
+        function filterMoviesByPage(page) {
+            var genre = $('#genre').val();
+            var sortBy = $('#sortBy').val();
+            $.ajax({
+                url: '@Url.Action("FilterMovies", "Movies")',
+                type: 'GET',
+                data: { genre: genre, sortBy: sortBy, page: page },
+                success: function (result) {
+                    $('#moviesList').html(result);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+}

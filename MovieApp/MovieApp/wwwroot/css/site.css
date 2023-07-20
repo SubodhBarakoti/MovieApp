@@ -1,0 +1,86 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: left;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    color: #ccc;
+}
+
+    .rating label:before {
+        content: "\2605";
+        font-size: 24px;
+    }
+
+.rating input:checked ~ label {
+    color: #ffc107;
+}
+
+.comment-field {
+    background-color: #f5f5f5;
+    padding: 10px;
+    padding-left:20px;
+    margin-top: 10px;
+    border-radius: 25px;
+}
+
+.comment-field strong {
+    font-weight: bold;
+}
+
+.comment-field p {
+    margin-top: 5px;
+}
+
+.comment-container {
+    position: relative;
+}
+
+.comment-container > input {
+    padding-right: 150px; /* Adjust this value to accommodate the button width */
+    border-radius: 30px;
+    height: 8vh; /* Set the desired height */
+    padding-left: 30px; /* Adjust padding as needed */
+    line-height: 20px; /* Adjust line-height as needed */
+}
+
+.comment-container > button {
+    position: absolute;
+    top: 1.5vh;
+    right: 10px;
+    height: 5vh;
+    width: 100px; /* Adjust this value to set the button width */
+    border-radius: 20px;
+}

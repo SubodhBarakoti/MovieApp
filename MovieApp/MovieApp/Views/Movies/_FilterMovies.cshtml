@@ -1,0 +1,26 @@
+﻿@using Common.ViewModels;
+@using Common.Enums;
+@model DisplayMoviesViewModel
+
+<form id="filterForm" class="col-md-12">
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label class="col-md-3">Genre</label>
+            <div class="col-md-9">
+                <select id="genre" asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId">
+                    <option value="">--Select--</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4 form-group">
+            <label class="col-md-3" asp-for="SortBy"></label>
+            <div class="col-md-9">
+                <select id="sortBy" name="sortBy" class="form-control" asp-for="SortBy" asp-items="Html.GetEnumSelectList<MovieSortBy>()"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+    </div>
+</form>
+

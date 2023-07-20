@@ -1,0 +1,183 @@
+﻿@using Common.ViewModels;
+@using Common.Enums;
+@using Entities;
+@using Microsoft.AspNetCore.Identity;
+@model MovieDetailsViewModel
+@inject UserManager<Users> userManager;
+
+<div>
+    <br />
+    <div class="row">
+        <!-- Left section for the image -->
+        <div class="col-sm-3">
+            <img src="~/@Model.Movie.ImagePath" alt="@Model.Movie.Name" class="img-fluid" style="max-height: 300px; max-width: 300px;" /><br />
+            @if (User.IsInRole(UserRole.Super_Admin.ToString()) || User.IsInRole(UserRole.Admin.ToString()))
+            {<br/>
+                <div>
+                    <a asp-action="ChangeMovieImage" class="btn btn-success" asp-route-id="@Model.Movie.Id">Change Image</a>
+                    <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@Model?.Movie.Id">Edit</a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@Model?.Movie.Id">Delete</a>
+                </div>
+            }
+        </div>
+        <!-- Right section for other movie details -->
+        <div class="col-sm-9">
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Movie.Name)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Movie.Name)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Movie.Description)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Movie.Description)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Movie.MovieDuration)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Movie.MovieDuration)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Movie.GenreName)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Movie.GenreName)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Movie.ReleaseDate)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Movie.ReleaseDate)
+                </dd>
+            </dl>
+        </div>
+    </div><br />
+</div>
+<dt class="col-sm-2">
+    <label asp-for="Movie.AverageRating">Average Rating:</label>
+    <span id="AverageRating">@Model.Movie.AverageRating</span>
+</dt>
+@if (User.Identity.IsAuthenticated)
+{
+    @if (!ViewBag.HasRated)
+    {
+        <partial name="../Rating/_AddRating" model="@Model.Movie.Id" />
+    }
+}
+<hr />
+<h2>Comment Section</h2>
+@if (User.Identity.IsAuthenticated)
+{
+    <partial name="../Discussion/_AddDiscussion" model="@Model.Movie.Id" />
+}
+else
+{
+    <h4 class="text-info">Login In order to comment!</h4>
+}
+<div id="discussionList">
+    <partial name="../Discussion/_GetDiscussion" model="@Model.Discussions" />
+</div>
+@section Scripts{
+    <script>
+        function AddDiscussion() {
+            var MovieId=$('#MovieId').val();
+            var DiscussionText = $('#commentBox').val();
+            $('#commentBox').val('')
+            $.ajax({
+                url: '@Url.Action("AddDiscussion", "Discussion")',
+                type: 'POST',
+                data: { MovieId: MovieId, DiscussionText: DiscussionText },
+                success: function (result) {
+                    $('#discussionList').html(result);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+        $(document).ready(function () {
+            $('#AddDiscussion').submit(function (event) {
+                event.preventDefault();
+                var commentText = $('#commentBox').val().trim();
+                if (commentText === '') {
+                    $('#commentValidation').text('Please enter a comment.');
+                    return false;
+                }
+                AddDiscussion();
+            });
+        });
+    </script>
+    <script>
+        function DiscussionPagination(page) {
+            var MovieId = $('#MovieId').val();
+            $.ajax({
+                url: '@Url.Action("ViewDiscussion", "Discussion")',
+                type: 'GET',
+                data: { MovieId: MovieId, page: page },
+                success: function (result) {
+                    $('commentBox').text('');
+                    $('#discussionList').html(result);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+    <script>
+        function DeleteDiscussion() {
+            var MovieId = $('#MovieId').val();
+            var DiscussionId = $('#DiscussionId').val();
+            $.ajax({
+                url: '@Url.Action("DeleteDiscussion", "Discussion")',
+                type: 'POST',
+                data: { MovieId: MovieId, DiscussionId: DiscussionId },
+                success: function (result) {
+                    $('commentBox').text('');
+                    $('#discussionList').html(result);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('input[type="radio"]').click(function () {
+                $('#submitRatingButton').show();
+            });
+        });
+        $(document).ready(function(){
+            $('#submitRatingButton').click(function(event){
+                event.preventDefault();
+
+                var rating = $('input[name="rating"]:checked').val();
+
+                var movieId = $('input[name="MovieId"]').val();
+                var data = {
+                    rating: rating,
+                    movieId: movieId
+                };
+                $.ajax({
+                    url: '@Url.Action("SubmitRating", "Rating")',
+                    type: 'POST',
+                    data: data,
+                    success: function (response) {
+                        // Handle the success response
+                        $('#RatingForm').hide();
+                        $('#AverageRating').html(response);
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle the error response
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+}

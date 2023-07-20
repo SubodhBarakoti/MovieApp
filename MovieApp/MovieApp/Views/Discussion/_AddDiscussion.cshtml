@@ -1,0 +1,11 @@
+﻿@model Guid
+<div class="row col-md-12">
+    <form id="AddDiscussion">
+        <div class="form-group comment-container">
+            <input type="hidden" id="MovieId" name="MovieId" value="@Model"/>
+            <input class="form-control" id="commentBox" placeholder="Add Comments ...." name="DiscussionText"/>
+            <span id="commentValidation" class="text-danger"></span>
+            <button type="submit" class="btn btn-success" id="buttonname">Comment</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+﻿@using Common.ViewModels;
+@model MovieViewModel
+
+<h2>Change Image</h2>
+
+<div>
+    <img src="~/@Model.ImagePath" alt="@Model.Name" class="img-fluid" style="max-height: 400px; max-width: 400px;" />
+    <h2>Movie Name: <moviename style="color:darkred;">@Model.Name</moviename></h2>
+</div>
+<form asp-action="ChangeMovieImage" enctype="multipart/form-data">
+    <input type="hidden" value="@Model.Id" name="MovieId" />
+    <button id="changeImageLink" class="btn btn-info">Change Image</button>
+    <div class="form-group" id="SubmitImage" style="display: none;">
+        <input type="submit" value="Upload Image" class="btn btn-primary" />
+        <input type="file" id="imageUpload" name="ImageFile" />
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#changeImageLink').click(function (e) {
+                e.preventDefault();
+                $('#imageUpload').click();
+            });
+
+            $('#imageUpload').change(function () {
+                var fileInput = $(this)[0];
+                var submitButton = $('#SubmitImage');
+
+                if (fileInput.files && fileInput.files.length > 0) {
+                    $('#changeImageLink').hide();
+                    submitButton.show();
+                }
+            });
+        });
+    </script>
+}

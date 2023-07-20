@@ -1,0 +1,9 @@
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\obj\Release\net7.0\MovieApp.csproj.AssemblyReference.cache
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\obj\Release\net7.0\MovieApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\obj\Release\net7.0\MovieApp.AssemblyInfoInputs.cache
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\obj\Release\net7.0\MovieApp.AssemblyInfo.cs
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\obj\Release\net7.0\MovieApp.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\obj\Release\net7.0\MovieApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\obj\Release\net7.0\MovieApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\obj\Release\net7.0\MovieApp.RazorAssemblyInfo.cache
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\obj\Release\net7.0\MovieApp.RazorAssemblyInfo.cs
