@@ -10,3 +10,15 @@ C:\Users\Acer\Documents\MEGAsync\Intern\MovieAppAPI\MovieAppAPI\Common\obj\Debug
 C:\Users\Acer\Documents\MEGAsync\Intern\MovieAppAPI\MovieAppAPI\Common\obj\Debug\net7.0\refint\Common.dll
 C:\Users\Acer\Documents\MEGAsync\Intern\MovieAppAPI\MovieAppAPI\Common\obj\Debug\net7.0\Common.pdb
 C:\Users\Acer\Documents\MEGAsync\Intern\MovieAppAPI\MovieAppAPI\Common\obj\Debug\net7.0\ref\Common.dll
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\bin\Debug\net7.0\Common.deps.json
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\bin\Debug\net7.0\Common.dll
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\bin\Debug\net7.0\Common.pdb
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\obj\Debug\net7.0\Common.csproj.AssemblyReference.cache
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\obj\Debug\net7.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\obj\Debug\net7.0\Common.AssemblyInfoInputs.cache
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\obj\Debug\net7.0\Common.AssemblyInfo.cs
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\obj\Debug\net7.0\Common.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\obj\Debug\net7.0\Common.dll
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\obj\Debug\net7.0\refint\Common.dll
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\obj\Debug\net7.0\Common.pdb
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\Common\obj\Debug\net7.0\ref\Common.dll

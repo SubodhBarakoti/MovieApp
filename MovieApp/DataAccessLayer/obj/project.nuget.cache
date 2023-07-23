@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ewki0ORpZr8WqIZZoqM7giOR2UDopw1o1bq8J5694XdWYBYcvZpa3BrdRAhOrWIJ/glbJhWghUExw6VzuXnGXw==",
+  "dgSpecHash": "CqKrvQnHEnG3eWmwE3L1zIdViUXjQyr360g1D3X4zxJ4XbS8pk/FcUqvZ1UxWmHxARavwSyCmbhW8+IycH883g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\DataAccessLayer\\DataAccessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\dapper\\2.0.143\\dapper.2.0.143.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.9\\microsoft.aspnetcore.cryptography.internal.7.0.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.9\\microsoft.aspnetcore.cryptography.keyderivation.7.0.9.nupkg.sha512",

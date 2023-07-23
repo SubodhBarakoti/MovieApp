@@ -102,7 +102,7 @@ namespace DataAccessLayer.Repositories.SPRepository
 
         public async Task<Movie> GetMovieById(Guid id)
         {
-            Movie movie = (Movie)null;
+            Movie movie=new Movie();
             using (var _connection = new SqlConnection(_connectionstring))
             {
                 _connection.Open();

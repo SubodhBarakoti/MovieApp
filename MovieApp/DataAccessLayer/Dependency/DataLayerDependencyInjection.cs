@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Persistance;
+using DataAccessLayer.Persistance.Dapper;
 using DataAccessLayer.Persistance.Seed;
 using DataAccessLayer.Repositories;
 using DataAccessLayer.Repositories.Interface;
@@ -19,26 +20,26 @@ namespace DataAccessLayer.Dependency
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(ConnectionString, a => { a.MigrationsAssembly("DataAccessLayer"); }));
 
-            services.AddScoped<IDbInitializer, DbInitializer>();
 
+            services.AddSingleton<DapperContext>();
 
-            
+            services.AddSingleton<IDbInitializer, DbInitializer>();
 
             services.AddTransient<IAllRepositories, AllRepositories>();
 
             if (configuration.GetValue<bool>("UseStoredProcedure"))
             {
-                services.AddScoped<IMovieRepository, MovieSPRepository>();
-                services.AddScoped<IGenreRepository, GenreSPRepository>();
-                services.AddScoped<IDiscussionRepository, DiscussionSPRepository>();
-                services.AddScoped<IRatingRepository, RatingSPRepository>();
+                services.AddTransient<IMovieRepository, MovieSPRepository>();
+                services.AddTransient<IGenreRepository, GenreSPRepository>();
+                services.AddTransient<IDiscussionRepository, DiscussionSPRepository>();
+                services.AddTransient<IRatingRepository, RatingSPRepository>();
             }
             else
             {
-                services.AddScoped<IMovieRepository, MovieRepository>();
-                services.AddScoped<IGenreRepository, GenreRepository>();
-                services.AddScoped<IDiscussionRepository, DiscussionRepository>();
-                services.AddScoped<IRatingRepository, RatingRepository>();
+                services.AddTransient<IMovieRepository, MovieRepository>();
+                services.AddTransient<IGenreRepository, GenreRepository>();
+                services.AddTransient<IDiscussionRepository, DiscussionRepository>();
+                services.AddTransient<IRatingRepository, RatingRepository>();
             }
             return services;
 

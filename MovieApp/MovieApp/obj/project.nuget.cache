@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "+llyantZuBAKl2WKpLV6EhXMjyOwV8zmNLTiUSH5t7HVFk5V+gVUZ0i/bZ+vDuSjnnERHYh4Gqcoqcp8qu7peQ==",
+  "dgSpecHash": "2RR1PPoOBgDPsrbxdAjznzxbsPTAJg6Qaxzh7zvPES2gU+nhw3uyjEhkHySGarNpOIfqAaUWdr1A1enpwemkKA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\MovieApp\\MovieAppMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\dapper\\2.0.143\\dapper.2.0.143.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

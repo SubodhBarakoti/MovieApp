@@ -8,6 +8,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using DataAccessLayer.Persistance.Seed;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Diagnostics;
+using System.Net;
+using Common.ViewModels;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -92,7 +96,28 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseExceptionHandler(
+    options =>
+    {
+        options.Run(async context =>
+        {
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            context.Response.ContentType = "application/json";
+            var exceptionObject = context.Features.Get<IExceptionHandlerFeature>();
+            if (null != exceptionObject)
+            {
+                var res = new Response<dynamic>
+                {
+                    Status = "Error",
+                    Message = exceptionObject.Error.Message,
+                    HttpStatus = HttpStatusCode.InternalServerError
+                };
+                var jsonResponse = JsonConvert.SerializeObject(res);
+                await context.Response.WriteAsync(jsonResponse).ConfigureAwait(false);
+            }
+        });
+    }
+);
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

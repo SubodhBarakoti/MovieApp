@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "bnX5lc2itUS3Q1S05K2VEwBbpnrVFEc1eqiyiUN38lroPasyfD0URYIDVo62CpHiYADTZIWGv6tAAoQy2WdwDA==",
+  "dgSpecHash": "n8O9UsEHBr/TUZc9SGYPay7jr5J+jn5FmGhmm2I3WEj7an+0tKkBuD4DD4jkRJJk95b/nDKTZPf1sLikTvuhew==",
   "success": true,
   "projectFilePath": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\dapper\\2.0.143\\dapper.2.0.143.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.9\\microsoft.aspnetcore.cryptography.internal.7.0.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.9\\microsoft.aspnetcore.cryptography.keyderivation.7.0.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
