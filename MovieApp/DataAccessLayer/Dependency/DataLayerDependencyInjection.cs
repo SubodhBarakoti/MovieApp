@@ -42,7 +42,8 @@ namespace DataAccessLayer.Dependency
                 services.AddTransient<IGenreRepository, GenreRepository>();
                 services.AddTransient<IDiscussionRepository, DiscussionRepository>();
                 services.AddTransient<IRatingRepository, RatingRepository>();
-            }else if(configuration["UseDataAccessTechnology"] == DataAccessTechnology.Dapper.ToString())
+            }
+            else if(configuration["UseDataAccessTechnology"] == DataAccessTechnology.Dapper.ToString())
             {
                 services.AddTransient<IMovieRepository, DapperMovieRepository>();
                 services.AddTransient<IGenreRepository, DapperGenreRepository>();

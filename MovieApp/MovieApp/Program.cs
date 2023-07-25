@@ -15,7 +15,8 @@ services.AddDataLinkLayerServices(configuration);
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentity<Users, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultUI();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();

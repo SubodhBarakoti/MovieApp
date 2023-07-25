@@ -13,7 +13,7 @@ namespace MovieAppMVC.Controllers
     public class MoviesController : Controller
     {
         private readonly UserManager<Users> _userManager;
-        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly ICon _webHostEnvironment;
         private readonly IMovieService _movieService;
         private readonly IDiscussionService _discussionService;
         private readonly IRatingService _ratingService;
