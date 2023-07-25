@@ -38,6 +38,7 @@ namespace DataAccessLayer.Repository.DapperRepository
                 parameters.Add("@skip_count", skip_count);
                 parameters.Add("@page_size", page_size);
                 parameters.Add("@GenreId", GenreId);
+                parameters.Add("@movieSortBy", movieSortBy.ToString());
 
                 var movies = await connection.QueryAsync<MovieViewModel>(StoredProcedureName.GetAllMovies,parameters,commandType:CommandType.StoredProcedure);
                 return movies;
