@@ -5,13 +5,7 @@ using Dapper;
 using DataAccessLayer.Persistance.Dapper;
 using DataAccessLayer.Repositories.Interface;
 using Entities;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace DataAccessLayer.Repository.DapperRepository
 {
@@ -85,7 +79,7 @@ namespace DataAccessLayer.Repository.DapperRepository
 
                 parameters.Add("@Id", id);
 
-                var movie = await connection.QueryFirstOrDefaultAsync<MovieViewModel>(StoredProcedureName.GetMovieById, parameters,commandType: CommandType.StoredProcedure);
+                var movie = await connection.QueryFirstOrDefaultAsync<MovieViewModel>(StoredProcedureName.GetViewMovieById, parameters,commandType: CommandType.StoredProcedure);
 
                 return movie;
             }
@@ -107,20 +101,37 @@ namespace DataAccessLayer.Repository.DapperRepository
                 parameters.Add("@ReleaseDate", movie.ReleaseDate);
                 parameters.Add("@ImagePath", movie.ImagePath);
 
-
-                
-                await connection.ExecuteAsync<Movie>(StoredProcedureName.MovieInsert, parameters, commandType: CommandType.StoredProcedure)
+                await connection.ExecuteAsync(StoredProcedureName.MovieInsert, parameters, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public Task<int> MovieCountByGenre(Guid? GenreId)
+        public async Task<int> MovieCountByGenre(Guid? GenreId)
         {
-            throw new NotImplementedException();
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                var parameters = new DynamicParameters();
+
+                parameters.Add("@GenreId", GenreId);
+                var count = await connection.QueryFirstOrDefaultAsync<int>(StoredProcedureName.GetMovieCount, parameters, commandType: CommandType.StoredProcedure);
+                return count;
+            }
         }
 
-        public Task UpdateMovie(Movie movie)
+        public async Task UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                var parameters = new DynamicParameters();
+
+                parameters.Add("@Id", movie.Id);
+                parameters.Add("@Name", movie.Name);
+                parameters.Add("@Description", movie.Description);
+                parameters.Add("@MovieDuration", movie.MovieDuration);
+                parameters.Add("@GenreId", movie.GenreId);
+                parameters.Add("@ReleaseDate", movie.ReleaseDate);
+
+                await connection.ExecuteAsync(StoredProcedureName.MovieUpdate, parameters, commandType: CommandType.StoredProcedure);
+            }
         }
     }
 }

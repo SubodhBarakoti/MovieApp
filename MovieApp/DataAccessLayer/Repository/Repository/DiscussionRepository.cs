@@ -58,8 +58,7 @@ namespace DataAccessLayer.Repositories.Repository
                 Id = d.Id,
                 DiscussionText = d.DiscussionText,
                 Created = d.Created,
-                UserName = d.User.FirstName + " " + d.User.LastName
-
+                UserName = d.User.UserName
             }).Where(d => d.Id == DiscussionId).FirstOrDefaultAsync();
         }
     }

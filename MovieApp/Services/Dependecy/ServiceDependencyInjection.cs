@@ -2,9 +2,6 @@
 using Services.Interface;
 using Services.Services;
 using Microsoft.Extensions.Configuration;
-using DataAccessLayer.Persistance;
-using Entities;
-using Microsoft.AspNetCore.Identity;
 
 namespace Services.Dependecy
 {
