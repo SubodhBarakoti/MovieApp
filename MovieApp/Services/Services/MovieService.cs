@@ -13,6 +13,7 @@ namespace Services.Services
         private readonly IMediaUploadService _mediaUploadService;
         private readonly IPagerService _pager;
         private readonly IConfiguration _configuration;
+        private readonly string ProjectLocation;
 
         public MovieService(IAllRepositories repository, IMediaUploadService mediaUploadService, IPagerService pager, IConfiguration configuration)
         {
@@ -20,11 +21,12 @@ namespace Services.Services
             _mediaUploadService = mediaUploadService;
             _pager = pager;
             _configuration = configuration;
+            ProjectLocation=_configuration.GetValue<string>("ProjectLocation")?? throw new KeyNotFoundException();
         }
-        public async Task InsertMovie(InsertMovieViewModel imovie, string UserId, string WebFolder)
+        public async Task InsertMovie(InsertMovieViewModel imovie, string UserId)
         {
-            string ImageFolder = Path.Combine("Images", "Movie");
-            string ImagePath = await _mediaUploadService.AddImage(imovie.ImageFile, WebFolder, ImageFolder);
+            string ImageFolder = _configuration.GetValue<string>("ImageLocation")?? throw new ArgumentNullException("ImageFolderNotFound");
+            string ImagePath = await _mediaUploadService.AddImage(imovie.ImageFile, ProjectLocation, ImageFolder);
 
             Movie movie = new()
             {
@@ -98,15 +100,15 @@ namespace Services.Services
         {
             return await _repository.Movie.GetViewMovieById(id);
         }
-        public async Task ChangeImage(ChangeImageViewModel uimage, string WebFolder)
+        public async Task ChangeImage(ChangeImageViewModel uimage)
         {
-            var movie = await GetMovieById(uimage.MovieId);
+            var movie = await GetViewMovieById(uimage.MovieId);
             if (movie != null && uimage.ImageFile != null)
             {
                 string ImageFolder = _configuration.GetValue<string>("ImageLocation")?? throw new Exception();
-                string ImagePath = await _mediaUploadService.ChangeImage(uimage.ImageFile, WebFolder, ImageFolder, movie.ImagePath??throw new Exception());
+                string ImagePath = await _mediaUploadService.ChangeImage(uimage.ImageFile, ProjectLocation, ImageFolder, movie.ImagePath??throw new Exception());
                 movie.ImagePath = ImagePath;
-                await _repository.Movie.UpdateMovie(movie);
+                await _repository.Movie.UpdateImage(movie.Id,ImagePath);
             }
         }
         public async Task<UpdateMovieViewModel> GetEditItemById(Guid id)

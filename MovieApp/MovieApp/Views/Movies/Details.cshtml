@@ -10,7 +10,7 @@
     <div class="row">
         <!-- Left section for the image -->
         <div class="col-sm-3">
-            <img src="~/@Model.Movie.ImagePath" alt="@Model.Movie.Name" class="img-fluid" style="max-height: 300px; max-width: 300px;" /><br />
+            <img src="~/MyImages/@Model.Movie.ImagePath" alt="@Model.Movie.Name" class="img-fluid" style="max-height: 300px; max-width: 300px;" /><br />
             @if (User.IsInRole(UserRole.Super_Admin.ToString()) || User.IsInRole(UserRole.Admin.ToString()))
             {<br/>
                 <div>

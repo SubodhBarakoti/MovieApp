@@ -13,28 +13,29 @@ namespace MovieAppMVC.Controllers
     public class MoviesController : Controller
     {
         private readonly UserManager<Users> _userManager;
-        private readonly ICon _webHostEnvironment;
         private readonly IMovieService _movieService;
         private readonly IDiscussionService _discussionService;
         private readonly IRatingService _ratingService;
         private readonly IGenreService _genreService;
+        private readonly IConfiguration _configuration;
+        private readonly string ImageLocation;
 
         public MoviesController
             (
-                UserManager<Users> userManager, 
-                IWebHostEnvironment webHostEnvironment, 
+                UserManager<Users> userManager,
                 IMovieService movieService,
                 IDiscussionService discussionService,
                 IRatingService ratingService,
-                IGenreService genreService
-            )
+                IGenreService genreService,
+                IConfiguration configuration)
         {
             _userManager = userManager;
-            _webHostEnvironment = webHostEnvironment;
             _movieService = movieService;
             _discussionService = discussionService;
             _ratingService = ratingService;
             _genreService = genreService;
+            _configuration = configuration;
+            ImageLocation = _configuration.GetValue<string>("ProjectLocation")?? throw new InvalidOperationException("Not found Project Location");
         }
         [HttpGet]
         // GET: Movies
@@ -42,11 +43,13 @@ namespace MovieAppMVC.Controllers
         {
             var filteredMovies = await _movieService.GetAllMovies(genre, sortBy, page);
             ViewData["GenreId"] = new SelectList(await _genreService.GetAllGenre(), "Id", "Name");
+            ViewData["ImageLocation"] = ImageLocation;
             return View(filteredMovies);
         }
         public async Task<IActionResult> BrowseMovies(Guid? genre=null, MovieSortBy sortBy = MovieSortBy.Name, int page = 1)
         {
             var filteredMovies = await _movieService.GetAllMovies(genre, sortBy, page);
+            ViewData["ImageLocation"] = ImageLocation;
             return PartialView("_MovieList",filteredMovies);
         }
         [HttpGet]
@@ -68,6 +71,7 @@ namespace MovieAppMVC.Controllers
             {
                 return NotFound();
             }
+            ViewData["ImageLocation"] = ImageLocation;
             MovieDetailsViewModel MovieDiscussion = new()
             {
                 Movie = movie,
@@ -98,7 +102,7 @@ namespace MovieAppMVC.Controllers
             if (ModelState.IsValid)
             {
                 var UserId = _userManager.GetUserId(User) ?? throw new ArgumentNullException();
-                await _movieService.InsertMovie(movie, UserId,_webHostEnvironment.WebRootPath);
+                await _movieService.InsertMovie(movie, UserId);
                 TempData["Message"] = "Created Successfully";
                 return RedirectToAction(nameof(Index));
             }
@@ -156,6 +160,7 @@ namespace MovieAppMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> ChangeMovieImage(Guid id)
         {
+            ViewData["ImageLocation"] = ImageLocation;
             var movie = await _movieService.GetViewMovieById(id);
             return View(movie);
         }
@@ -163,7 +168,7 @@ namespace MovieAppMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeMovieImage([Bind("MovieId,ImageFile")] ChangeImageViewModel cimage)
         {
-            await _movieService.ChangeImage(cimage, _webHostEnvironment.WebRootPath);
+            await _movieService.ChangeImage(cimage);
             return RedirectToAction("Details", routeValues: new { id = cimage.MovieId });
         }
     }

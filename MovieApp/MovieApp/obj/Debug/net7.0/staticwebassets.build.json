@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nVojzu/VPW/YIthGF9O2F6BOFoROHW1PMU5jThZ05Wk=",
+  "Hash": "26+FO94rMmudqrxK5NmiFVn/hr1ZjetprFws+Ad9pXA=",
   "Source": "MovieAppMVC",
   "BasePath": "_content/MovieAppMVC",
   "Mode": "Default",
@@ -1103,23 +1103,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
-      "Identity": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\MovieApp\\wwwroot\\Images\\imagenotfound.png",
-      "SourceId": "MovieAppMVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\MovieApp\\wwwroot\\",
-      "BasePath": "_content/MovieAppMVC",
-      "RelativePath": "Images/imagenotfound.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\imagenotfound.png"
     },
     {
       "Identity": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\MovieApp\\wwwroot\\js\\site.js",

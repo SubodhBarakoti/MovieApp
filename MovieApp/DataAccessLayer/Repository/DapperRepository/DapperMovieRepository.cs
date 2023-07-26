@@ -118,6 +118,19 @@ namespace DataAccessLayer.Repository.DapperRepository
             }
         }
 
+        public async Task UpdateImage(Guid MovieId, string ImagePath)
+        {
+            using(var connection =  _dapperContext.CreateConnection())
+            {
+                var parameters = new DynamicParameters();
+
+                parameters.Add("@MovieId",MovieId);
+                parameters.Add("@ImagePath",ImagePath);
+
+                await connection.ExecuteAsync(StoredProcedureName.UpdateMovieImage,parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
+
         public async Task UpdateMovie(Movie movie)
         {
             using (var connection = _dapperContext.CreateConnection())

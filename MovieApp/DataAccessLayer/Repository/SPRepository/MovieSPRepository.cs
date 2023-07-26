@@ -210,6 +210,21 @@ namespace DataAccessLayer.Repositories.SPRepository
             }
         }
 
+        public async Task UpdateImage(Guid MovieId, string ImagePath)
+        {
+            using(var _connection = new SqlConnection(_connectionstring))
+            {
+                SqlCommand command = new SqlCommand(StoredProcedureName.UpdateMovieImage, _connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@MovieId",MovieId);
+                command.Parameters.AddWithValue("@ImagePath",ImagePath);
+
+                _connection.Open();
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+
         public async Task UpdateMovie(Movie movie)
         {
             using (var _connection = new SqlConnection(_connectionstring))

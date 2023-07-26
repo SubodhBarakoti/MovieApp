@@ -4,7 +4,7 @@
 <h2>Change Image</h2>
 
 <div>
-    <img src="~/@Model.ImagePath" alt="@Model.Name" class="img-fluid" style="max-height: 400px; max-width: 400px;" />
+    <img src="~/MyImages/@Model.ImagePath" alt="@Model.Name" class="img-fluid" style="max-height: 400px; max-width: 400px;" />
     <h2>Movie Name: <moviename style="color:darkred;">@Model.Name</moviename></h2>
 </div>
 <form asp-action="ChangeMovieImage" enctype="multipart/form-data">

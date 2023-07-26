@@ -30,6 +30,7 @@
         public readonly static string GetMovieCount = "SP_MovieCount";
         public readonly static string MovieUpdate = "SP_UpdateMovie";
         public readonly static string MovieExists = "SP_MovieExists";
+        public readonly static string UpdateMovieImage = "SP_UpdateMovieImage";
 
 
         //Rating Stored Procedure

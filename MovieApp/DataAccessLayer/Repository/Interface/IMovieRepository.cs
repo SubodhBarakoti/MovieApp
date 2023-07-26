@@ -14,5 +14,6 @@ namespace DataAccessLayer.Repositories.Interface
         Task<decimal> GetAverageRating(Guid id);
         Task<MovieViewModel> GetViewMovieById(Guid id);
         Task<int> MovieCountByGenre(Guid? GenreId);
+        Task UpdateImage(Guid MovieId, string ImagePath);
     }
 }

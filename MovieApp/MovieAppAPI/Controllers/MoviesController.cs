@@ -12,16 +12,10 @@ namespace MovieAppAPI.Controllers
     [ApiController]
     public class MoviesController : ControllerBase
     {
-        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IMovieService _movieService;
 
-        public MoviesController
-            (
-                IWebHostEnvironment webHostEnvironment,
-                IMovieService movieService
-            )
+        public MoviesController(IMovieService movieService)
         {
-            _webHostEnvironment = webHostEnvironment;
             _movieService = movieService;
         }
 
@@ -78,7 +72,7 @@ namespace MovieAppAPI.Controllers
             try
             {
                 var UserId = User.FindFirstValue("UserId");
-                await _movieService.InsertMovie(movie, UserId,_webHostEnvironment.WebRootPath);
+                await _movieService.InsertMovie(movie, UserId);
                 return new Response<string> { Status = Status.Success.ToString(), Message = "Movie Added Successfully.", HttpStatus = HttpStatusCode.OK };
             }
             catch (Exception ex)
@@ -136,7 +130,7 @@ namespace MovieAppAPI.Controllers
         {
             try
             {
-                await _movieService.ChangeImage(changeimage, _webHostEnvironment.WebRootPath);
+                await _movieService.ChangeImage(changeimage);
                 return new Response<string> { Status = Status.Success.ToString(), Message = "Image Changed Successfully" };
             }
             catch (Exception ex)

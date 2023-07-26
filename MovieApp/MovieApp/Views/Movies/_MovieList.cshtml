@@ -9,7 +9,7 @@
             <div class="col-md-4 mb-4">
                 <a asp-action="Details" asp-route-id="@movie.Id" style="text-decoration:none;color:darkmagenta;">
                     <div class="card">
-                    <img src="~/@movie.ImagePath" class="card-img-top" alt="@movie.Name" height="250px">
+                        <img src="~/MyImages/@movie.ImagePath" class="card-img-top" alt="@movie.Name" height="250px">
                     <div class="card-body">
                         <h5 class="card-title">@movie.Name</h5>
                         <p class="card-text">Release Date: @movie.ReleaseDate.ToShortDateString()</p>

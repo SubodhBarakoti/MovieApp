@@ -4,6 +4,7 @@ using Services.Dependecy;
 using DataAccessLayer.Dependency;
 using DataAccessLayer.Persistance.Seed;
 using Entities;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,14 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseStaticFiles(
+    new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+            configuration.GetValue<string>("ProjectLocation") ?? throw new InvalidOperationException("Image Location Not Found")),
+        RequestPath="/MyImages"
+    }
+);
 
 app.UseRouting();
 

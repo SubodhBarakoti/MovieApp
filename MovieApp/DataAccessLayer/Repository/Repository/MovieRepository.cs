@@ -202,5 +202,12 @@ namespace DataAccessLayer.Repositories.Repository
         {
             return await _context.tbl_Movies.Where(m => m.Id == id).Select(m => m.AverageRating).FirstOrDefaultAsync();
         }
+
+        public async Task UpdateImage(Guid MovieId, string ImagePath)
+        {
+            var movie = await GetMovieById(MovieId);
+            movie.ImagePath= ImagePath;
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\MovieAppMVC.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\MovieApp\\wwwroot\\Images\\imagenotfound.png",
-      "PackagePath": "staticwebassets\\Images\\imagenotfound.png"
-    },
-    {
       "Id": "C:\\Users\\Acer\\Documents\\MEGAsync\\Intern\\MovieApp\\MovieApp\\MovieApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
