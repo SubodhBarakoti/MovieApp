@@ -13,6 +13,8 @@ using System.Net;
 using Common.ViewModels;
 using Newtonsoft.Json;
 using Microsoft.Extensions.FileProviders;
+using Hangfire;
+using Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -141,6 +143,9 @@ app.UseAuthorization();
 app.UseCors();
 
 
+app.UseHangfireDashboard();
+app.MapHangfireDashboard();
+
 app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
@@ -148,5 +153,8 @@ using (var scope = app.Services.CreateScope())
     var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
     await dbInitializer.Initialize();
 }
+
+RecurringJob.AddOrUpdate<IBackGroundServices>(x => x.SendNotificationMovieRelease(), cronExpression: "0 0 * * *");
+
 
 app.Run();

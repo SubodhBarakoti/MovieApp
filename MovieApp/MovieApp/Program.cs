@@ -5,6 +5,8 @@ using DataAccessLayer.Dependency;
 using DataAccessLayer.Persistance.Seed;
 using Entities;
 using Microsoft.Extensions.FileProviders;
+using Hangfire;
+using Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +53,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseHangfireDashboard();
+app.MapHangfireDashboard();
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Movies}/{action=Index}/{id?}");
@@ -61,5 +67,7 @@ using (var scope = app.Services.CreateScope())
     var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
     await dbInitializer.Initialize();
 }
+
+RecurringJob.AddOrUpdate<IBackGroundServices>(x => x.SendNotificationMovieRelease(), cronExpression: "0 0 * * *");
 
 app.Run();

@@ -2,6 +2,7 @@
 using Services.Interface;
 using Services.Services;
 using Microsoft.Extensions.Configuration;
+using Hangfire;
 
 namespace Services.Dependecy
 {
@@ -9,6 +10,15 @@ namespace Services.Dependecy
     {
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
         {
+
+            services.AddHangfire(config => config
+            .UseSimpleAssemblyNameTypeSerializer()
+            .UseRecommendedSerializerSettings()
+            .UseSqlServerStorage(configuration.GetConnectionString("DefaultConnection"))
+            );
+            services.AddHangfireServer();
+
+            services.AddTransient<IBackGroundServices, BackGroundServices>();
             services.AddTransient<IPagerService, PagerService>();
             services.AddTransient<IMediaUploadService, MediaUploadService>();
             services.AddTransient<IEmailServices, EmailServices>();

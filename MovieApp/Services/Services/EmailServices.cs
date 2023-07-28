@@ -63,5 +63,43 @@ namespace Services.Services
                 smtpClient.Dispose();
             }
         }
+
+
+        public async Task<string> BackGroundTaskEmail(BackGroundTaskEmail email)
+        {
+            string senderEmail = "parasbarakoti177@gmail.com";
+            string senderPassword = "qzhtnqhhsyfttdxs";
+
+            
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new NetworkCredential(senderEmail, senderPassword);
+
+            MailMessage mailMessage = new MailMessage
+            {
+                From = new MailAddress(senderEmail),
+                Subject = email.Subject,
+                Body = email.Message
+            };
+            foreach(var receipentEmail in email.ReceiverEmail)
+                mailMessage.To.Add(receipentEmail);
+
+            try
+            {
+                await smtpClient.SendMailAsync(mailMessage);
+                return "Mail Sent Successfully";
+            }
+            catch (Exception ex)
+            {
+                return $"Error Sending Mail {ex.Message}";
+            }
+            finally
+            {
+                mailMessage.Dispose();
+                smtpClient.Dispose();
+            }
+        }
     }
 }
