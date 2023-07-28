@@ -184,3 +184,5 @@ C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\MovieAppAPI\obj\Debug\
 C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\MovieAppAPI\obj\Debug\net7.0\MovieAppAPI.genruntimeconfig.cache
 C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\MovieAppAPI\obj\Debug\net7.0\ref\MovieAppAPI.dll
 C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\MovieAppAPI\bin\Debug\net7.0\Dapper.dll
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\MovieAppAPI\bin\Debug\net7.0\SendGrid.dll
+C:\Users\Acer\Documents\MEGAsync\Intern\MovieApp\MovieApp\MovieAppAPI\bin\Debug\net7.0\StarkbankEcdsa.dll

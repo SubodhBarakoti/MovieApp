@@ -11,6 +11,7 @@ namespace Services.Dependecy
         {
             services.AddTransient<IPagerService, PagerService>();
             services.AddTransient<IMediaUploadService, MediaUploadService>();
+            services.AddTransient<IEmailServices, EmailServices>();
             services.AddTransient<IMovieService, MovieService>();
             services.AddTransient<IDiscussionService, DiscussionService>();
             services.AddTransient<IRatingService, RatingService>();

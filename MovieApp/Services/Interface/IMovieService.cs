@@ -15,6 +15,7 @@ namespace Services.Interface
         Task<Movie> GetMovieById(Guid id);
         Task<MovieViewModel> GetViewMovieById(Guid id);
         Task InsertMovie(InsertMovieViewModel imovie,string UserId);
+        Task<dynamic> SendEmail(Guid MovieId, string Email);
         Task UpdateMovie(Guid id, UpdateMovieViewModel umovie);
     }
 }

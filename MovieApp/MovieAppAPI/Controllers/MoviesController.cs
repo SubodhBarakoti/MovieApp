@@ -139,6 +139,27 @@ namespace MovieAppAPI.Controllers
             }
         }
         
+        [Authorize]
+        [Route("~/api/ShareMovie")]
+        [HttpPost]
+        public async Task<Response<string>> SendEmail(Guid MovieId, string Email)
+        {
+            try
+            {
+                if (await _movieService.GetMovieById(MovieId) != null)
+                {
+                    var response = await _movieService.SendEmail(MovieId, Email);
+                    return new Response<string> { Status = Status.Success.ToString(), Message = "Message Sent Successfully", HttpStatus = response.StatusCode };
+                }
+                return new Response<string> { Status = Status.NotFound.ToString(), Message = "Movie Not Found", HttpStatus = HttpStatusCode.NotFound };
+
+            }
+            catch (Exception ex)
+            {
+                return new Response<string> { Status = Status.Error.ToString(), Message = ex.Message, HttpStatus = HttpStatusCode.InternalServerError };
+            }
+        }
+        
 
 
         [Route("~/api/GetAverageRating/{MovieId}")]

@@ -14,14 +14,23 @@ namespace Services.Services
         private readonly IPagerService _pager;
         private readonly IConfiguration _configuration;
         private readonly string ProjectLocation;
+        private readonly IEmailServices _emailServices;
 
-        public MovieService(IAllRepositories repository, IMediaUploadService mediaUploadService, IPagerService pager, IConfiguration configuration)
+        public MovieService
+            (
+            IAllRepositories repository, 
+            IMediaUploadService mediaUploadService, 
+            IPagerService pager, 
+            IConfiguration configuration, 
+            IEmailServices emailServices
+            )
         {
             _repository = repository;
             _mediaUploadService = mediaUploadService;
             _pager = pager;
             _configuration = configuration;
-            ProjectLocation=_configuration.GetValue<string>("ProjectLocation")?? throw new KeyNotFoundException();
+            ProjectLocation = _configuration.GetValue<string>("ProjectLocation") ?? throw new KeyNotFoundException();
+            _emailServices = emailServices;
         }
         public async Task InsertMovie(InsertMovieViewModel imovie, string UserId)
         {
@@ -145,6 +154,45 @@ namespace Services.Services
                 var newAverage = (count * movie.AverageRating + rate) / (count + 1);
                 movie.AverageRating = newAverage;
                 await _repository.Movie.UpdateMovie(movie);
+            }
+        }
+
+        public async Task<dynamic> SendEmail(Guid MovieId, string Email)
+        {
+            var movie = await GetViewMovieById(MovieId);
+            //if (movie != null)
+            {
+                string filepath = Path.Combine(ProjectLocation, "SendEmailFormat.html");
+
+                string imagepath = Path.Combine(ProjectLocation, movie.ImagePath);
+
+                byte[] imageData = File.ReadAllBytes(imagepath);
+                string imageBase64 = Convert.ToBase64String(imageData);
+
+                string imageExtension = Path.GetExtension(imagepath).TrimStart('.');
+                string imageMimeType = $"image/{imageExtension}";
+                string image = $"data:{imageMimeType};base64,{imageBase64}";
+
+                var layout = await File.ReadAllTextAsync(filepath);
+
+                layout = layout.Replace("##Title##","MovieApp");
+                //layout = layout.Replace("##imagesLink##", image);
+                layout = layout.Replace("##ImageName##",movie.Name);
+                layout = layout.Replace("##movieTitle##",movie.Name);
+                layout = layout.Replace("##movieDescription##",movie.Description);
+                layout = layout.Replace("##MovieDuration##",movie.MovieDuration);
+                layout = layout.Replace("##Genre##",movie.GenreName);
+                layout = layout.Replace("##ReleaseDate##",movie.ReleaseDate.ToString());
+                layout = layout.Replace("##AverageRating##",movie.AverageRating.ToString());
+                EmailServiceViewModel emailServiceViewModel = new()
+                {
+                    Subject="A movie have been Recommended",
+                    ReceiverEmail=Email,
+                    UserName=Email,
+                    Message="",
+                    HtmlContent=layout
+                };
+                return await _emailServices.SendSMTPEmail(emailServiceViewModel);
             }
         }
     }

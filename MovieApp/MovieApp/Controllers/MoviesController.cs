@@ -171,5 +171,12 @@ namespace MovieAppMVC.Controllers
             await _movieService.ChangeImage(cimage);
             return RedirectToAction("Details", routeValues: new { id = cimage.MovieId });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> ShareMovie(Guid MovieId, string Email)
+        {
+            var response = await _movieService.SendEmail(MovieId, Email);
+            return Ok(response);
+        }
     }
 }
