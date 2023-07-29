@@ -17,9 +17,9 @@ namespace Services.Services
         private readonly IMovieService _movieService;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<Users> _userManager;
-        private readonly EmailServices _emailService;
+        private readonly IEmailServices _emailService;
 
-        public BackGroundServices(IMovieService movieService, ApplicationDbContext context, UserManager<Users> userManager, EmailServices emailService)
+        public BackGroundServices(IMovieService movieService, ApplicationDbContext context, UserManager<Users> userManager, IEmailServices emailService)
         {
             _movieService = movieService;
             _context = context;
@@ -36,18 +36,20 @@ namespace Services.Services
                 .Where(m => m.ReleaseDate.Date == tomorrow.Date)
                 .Select(m => m.Name)
                 .ToListAsync();
-
-            string movies="";
-            foreach(var  movie in moviesReleasingTomorrow)
+            if(moviesReleasingTomorrow != null)
             {
-                movies = movie+", ";
-            }
-            BackGroundTaskEmail email = new BackGroundTaskEmail();
-            email.Subject = "Movie Release Date Tomorrow";
-            email.ReceiverEmail = await Allmails();
-            email.Message=  movies+ "are releasing tomorrow. So Visit the nearest hall to get to the action";
+                string movies = "";
+                foreach (var movie in moviesReleasingTomorrow)
+                {
+                    movies = movie + ", ";
+                }
+                BackGroundTaskEmail email = new BackGroundTaskEmail();
+                email.Subject = "Movie Release Date Tomorrow";
+                email.ReceiverEmail = await Allmails();
+                email.Message = movies + "are releasing tomorrow. So Visit the nearest hall to get to the action";
 
-            await _emailService.BackGroundTaskEmail(email);
+                await _emailService.BackGroundTaskEmail(email);
+            }
             Console.WriteLine($"Running the process at {DateTime.Now.ToString("yyyy-mm-dd HH-mm-ss")}");
         }
         public async Task<IEnumerable<string>> Allmails()

@@ -38,6 +38,13 @@ else
     app.UseHsts();
 }
 
+app.Use(async (ctx, next) =>
+{
+    var start = DateTime.UtcNow;
+    await next.Invoke(ctx);
+    app.Logger.LogInformation($"Information From the middleWare {ctx.Request.Path}:{(DateTime.UtcNow-start).TotalMilliseconds}mls");
+});
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseStaticFiles(
